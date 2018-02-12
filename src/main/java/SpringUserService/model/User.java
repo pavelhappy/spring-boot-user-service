@@ -1,6 +1,5 @@
 package SpringUserService.model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,14 +40,14 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public String getBirthDate() {
+        DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+        return format.format(this.birthDate);
     }
 
     public void setBirthDate(String birthDate) throws Exception {
         DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-        Date date = format.parse(birthDate);
-        this.birthDate = date;
+        this.birthDate = format.parse(birthDate);
     }
 
     public String getEmail() {
